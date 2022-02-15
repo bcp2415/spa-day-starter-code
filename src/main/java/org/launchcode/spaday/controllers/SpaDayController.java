@@ -69,4 +69,16 @@ public class SpaDayController {
 
         return "menu";
     }
+
+    public ArrayList<String> getColors() {
+        ArrayList<String> colors = new ArrayList<>();
+        colors.add("red");
+        colors.add("blue");
+        colors.add("yellow");
+        colors.add("black");
+        colors.add("white");
+        colors.add("green");
+        return colors;
+    }
+
 }
