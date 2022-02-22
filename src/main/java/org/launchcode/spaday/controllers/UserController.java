@@ -25,14 +25,20 @@ public class UserController {
     public String processAddUserForm(@ModelAttribute @Valid User user, Errors errors, Model model, String verify) {
 
         if (errors.hasErrors()) {
+            System.out.println("Some errors present.");
             return "user/add";
-        } else if (!user.getPassword().equals(verify)) {
-            model.addAttribute("error", "Passwords do not match.");
-            System.out.println("Failed password match test.");
-            return "user/add";
-        } else {
-            return "user/index";
         }
+
+        if (user.getPassword().equals(verify)) {
+            return "user/index";
+        } else {
+            model.addAttribute("error", "Passwords do not match.");
+            System.out.println("Password problem.");
+            return "user/add";
+        }
+
+
+
 
     }
 
